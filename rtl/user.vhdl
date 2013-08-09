@@ -83,15 +83,7 @@ begin
 	loadEn<=clk when reset='0' and not i_computed else '0';
 	computeClk<=clk when reset='0' and i_loaded and not i_computed else '0';
 	
-	/* CRC computer using LFSR.
-		E.g. Design a CRC-32 generator with the following polynomial (CRC-32 algorithm):
-			G(x) = x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 + x^10
-					+ x^8 + x^7 + x^5 + x^4 + x^2 + x^1 + 1
-		
-		Equivalent to the following hex code: 0x04C11DB7, with the MSbit discarded (assumed 
-			present, but discarded in real implementation to save bits as it does not serve 
-			any other purpose).
-	*/
+	/* Galois LFSR instance. */
 	i_lfsr: entity work.lfsr(rtl)
 		generic map(taps=>tapVector)
 		/*generic map(taps => (
