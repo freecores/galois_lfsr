@@ -46,8 +46,6 @@ vcom -2008 -work work ../../rtl/galois-lfsr.vhdl \
 	../../rtl/user.vhdl \
 	| tee -ai ./simulate.log;
 
-#vsim -t ps -do ./waves.do -voptargs="+acc" "work.user(rtl)";
-
 errorStr=`grep "\*\* Error: " ./simulate.log`
 if [ `echo ${#errorStr}` -gt 0 ]
 then echo "Errors exist. Refer simulate.log for more details. Exiting."; exit;
