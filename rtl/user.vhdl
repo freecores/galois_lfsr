@@ -42,7 +42,9 @@ entity user is
 	generic(
 		parallelLoad:boolean:=false;
 		tapVector:boolean_vector:=(
-			/* Example polynomial from Wikipedia. */
+			/* Example polynomial from Wikipedia:
+				http://en.wikipedia.org/wiki/Computation_of_cyclic_redundancy_checks
+			*/
 			0|1|2|8=>true, 7 downto 3=>false
 		)
 	);
