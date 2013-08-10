@@ -49,7 +49,7 @@ entity user is
 	port(
 		/* Comment-out for simulation. */
 		--clk,reset:in std_ulogic;
-		msg:in unsigned(tapVector'length-1 downto 0):=9x"57";		-- Should be (tapVector'length downto 0). TODO report ModelSim bug.
+		msg:in unsigned(tapVector'high downto 0):=9x"57";
 		crc32:out unsigned(31 downto 0):=(others=>'0')
 	);
 end entity user;
