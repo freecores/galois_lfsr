@@ -40,7 +40,11 @@
         from http://www.opencores.org/lgpl.shtml.
 */
 library ieee; use ieee.std_logic_1164.all; use ieee.numeric_std.all;
---use work.types.all;
+/* Enable for synthesis; comment out for simulation.
+	For this design, we just need boolean_vector. This is already included in Questa/ModelSim, 
+	but Quartus doesn't yet support this.
+*/
+use work.types.all;
 
 entity lfsr is generic(
 		/* 
@@ -75,11 +79,10 @@ begin
 	/* Receives a vector of taps; generates LFSR structure with correct XOR positionings. */
 	tapGenr: for i in 0 to taps'high-1 generate
 		i_d(i+1)<=x(i) when taps(i) else i_q(i);
-		x(i)<=i_q(i) xor i_q(taps'high);	-- when nReset else '0';
+		x(i)<=i_q(i) xor i_q(taps'high);
 	end generate;
 	
 	process(nReset,load,seed,clk) is begin
-		--if nReset='0' or load then i_q<=seed;
 		if nReset='0' then i_q<=(others=>'0');
 		elsif load then i_q<=seed;
 		elsif rising_edge(clk) then
