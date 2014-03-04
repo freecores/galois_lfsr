@@ -6,14 +6,12 @@ add wave -position end  sim:/user/reset
 add wave -position end  sim:/user/parallelLoad
 add wave -position end  sim:/user/loadEn
 add wave -position end  sim:/user/computeClk
-#add wave -position end -hexadecimal sim:/user/rgmiiMac_in
-#add wave -position end -expand -hexadecimal sim:/user/rgmiiMac_out
 add wave -position end  sim:/user/d
-add wave -position end  sim:/user/crc32
-add wave -position end  sim:/user/i_lfsr/i_d
-add wave -position end  sim:/user/i_lfsr/i_q
-add wave -position end  sim:/user/i_lfsr/x
-add wave -position end  sim:/user/msg
+add wave -position end  -hexadecimal sim:/user/crc32
+add wave -position end  -hexadecimal sim:/user/i_lfsr/i_d
+add wave -position end  -hexadecimal sim:/user/i_lfsr/i_q
+add wave -position end  -hexadecimal sim:/user/i_lfsr/x
+add wave -position end  -hexadecimal sim:/user/msg
 add wave -position end  sim:/user/i_loaded
 add wave -position end  sim:/user/i_computed
 

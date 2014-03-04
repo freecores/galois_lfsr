@@ -44,7 +44,7 @@ library ieee; use ieee.std_logic_1164.all; use ieee.numeric_std.all;
 	For this design, we just need boolean_vector. This is already included in Questa/ModelSim, 
 	but Quartus doesn't yet support this.
 */
---use work.types.all;
+use work.types.all;
 
 entity lfsr is generic(
 		/* 
